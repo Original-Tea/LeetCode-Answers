@@ -11,18 +11,14 @@
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-    if(root == null) {
-        return true;
-    }
-
-    function mirror(left, right) {
-        if(left == null && right == null) {
+    
+    let mirror = function(p, q) {
+        if(!p && !q) {
             return true;
-        } 
-        if(left == null || right == null) {
+        } else if((!p || !q) || (p.val != q.val)) {
             return false;
         }
-        return left.val === right.val && mirror(left.right, right.left) && mirror(left.left, right.right)
+        return (mirror(p.left, q.right) && mirror(p.right, q.left))
     }
 
     return mirror(root.left, root.right);
