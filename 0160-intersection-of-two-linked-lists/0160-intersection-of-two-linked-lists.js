@@ -17,12 +17,12 @@ var getIntersectionNode = function(headA, headB) {
 
     while(a != b) {
         if(!a) {
-            a = headA;
+            a = headB;
         } else {
             a = a.next;
         }
         if(!b) {
-            b = headB;
+            b = headA;
         } else {
             b = b.next;
         }
