@@ -3,10 +3,10 @@
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-    nums = nums.sort((a, b) => a- b);
+    while(nums.length > 0) {
+        let popped = nums.pop();
 
-    for(let i = 1; i < nums.length; i++) {
-        if(nums[i] == nums[i - 1]) {
+        if(nums.includes(popped)) {
             return true;
         }
     }
