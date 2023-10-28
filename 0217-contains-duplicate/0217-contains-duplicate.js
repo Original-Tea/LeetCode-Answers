@@ -3,13 +3,7 @@
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-    while(nums.length > 0) {
-        let popped = nums.pop();
+    let set = new Set(nums);
 
-        if(nums.includes(popped)) {
-            return true;
-        }
-    }
-
-    return false;
+    return set.size != nums.length;
 };
