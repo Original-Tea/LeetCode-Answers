@@ -3,8 +3,8 @@
  * @return {string[]}
  */
 var summaryRanges = function(nums) {
-    let starter = "off";
-    let finisher = "off";
+    let starter = null;
+    let finisher = null;
     let result = [];
 
     if(nums.length == 0) {
@@ -12,21 +12,21 @@ var summaryRanges = function(nums) {
     }
     
     for(let i = 0; i < nums.length; i++) {
-        if(i == 0  || starter == "off") {
+        if(i == 0) {
             starter = nums[i];
         } else if(nums[i] == nums[i - 1] + 1) {
             finisher = nums[i];
-        } else if(finisher == "off") {
+        } else if(finisher == null) {
             result.push(`${starter}`);
             starter = nums[i];
         } else {
             result.push(`${starter}->${finisher}`);
             starter = nums[i];
-            finisher = "off";
+            finisher = null;
         }
     }
 
-    if(finisher == "off") {
+    if(finisher == null) {
         result.push(`${starter}`);
     } else {
         result.push(`${starter}->${finisher}`);
