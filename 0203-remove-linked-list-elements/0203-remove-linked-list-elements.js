@@ -15,7 +15,7 @@ var removeElements = function(head, val) {
     let result = null;
     let resultPointer = result;
 
-    while(pointer != null) {
+    while(pointer) {
         if(pointer.val == val) {
             pointer = pointer.next;
         } else {
